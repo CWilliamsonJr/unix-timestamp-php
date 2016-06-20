@@ -10,9 +10,9 @@
 
 Example Usage:
 
-`cewjr.us/UnixTimestamp/timestamp.php/?December%2015,%202015`
+`yourwebsite/timestamp.php/?December%2015,%202015`
 
-`cewjr.us/UnixTimestamp/timestamp.php/?1450137600`
+`yourwebsite.com/timestamp.php/?1450137600`
 
 **NOTE: Be sure to include the "?" before the date. If you do not it will not work.**
 
