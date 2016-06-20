@@ -10,7 +10,7 @@
 
 Example Usage:
 
-`yourwebsite/timestamp.php/?December%2015,%202015`
+`yourwebsite.com/timestamp.php/?December%2015,%202015`
 
 `yourwebsite.com/timestamp.php/?1450137600`
 
