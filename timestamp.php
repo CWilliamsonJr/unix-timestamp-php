@@ -4,14 +4,15 @@
     <title>Unix Timestamp Microservice - PHP</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js" ></script>
   </head>
 
   <body>
     <?php
       $time = array(); // holds the converted times
       $strString = 'l F  j\, Y'; // formats time output
-      $site =  $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']; // URL for the microservice
-      if(empty($_SERVER['QUERY_STRING'])){ // checks to see if a request was made
+      $site =  $_SERVER['SERVER_NAME'] .'/UnixTimestamp/timestamp.php' ; // URL for the microservice
+      if(empty(basename($_SERVER['PATH_INFO']))){ // checks to see if a request was made
 
 
         $html = <<<HTML
@@ -28,17 +29,21 @@
     </blockquote>
   </div>
     <div class='h3'>Example Usage: </div>
-    <div><code>$site?December%2015,%202015 </code></div>
-    <div><code>$site?1450137600</code></div> <br/>
-    <div> <strong> NOTE: Be sure to include the "?" before the date. If you do not it will not work.</strong> </div>
+    <div><code>$site/December 14,2015 </code></div>
+    <div><code>$site/1450137600</code></div> <br/>
     <div class='h3'>Example Output: </div>
-    <code> { "Unix Date": 1450137600, "Natural Date": "December 15, 2015" } </code>
+    <code>
+     { <br/>
+      "Unix Date": 1450137600, <br/>
+      "Natural Date": "December 14, 2015" <br/>
+    }
+    </code>
 
 </div>
 HTML;
         echo $html;
       }else{
-        $date = urldecode( $_SERVER['QUERY_STRING']);
+        $date = urldecode(basename($_SERVER['PATH_INFO']));
         if(!!strtotime($date) === true || is_numeric($date) === true ){
           if(strtotime($date)){
             $time = [
@@ -58,9 +63,6 @@ HTML;
           echo 'Not a vaild date';
         }
       }
-
-
-
       //*/
      ?>
 
