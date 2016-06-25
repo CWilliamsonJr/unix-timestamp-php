@@ -8,7 +8,7 @@
 >3.If it does not contain a date or Unix timestamp, it returns null for those properties.
 
 Example Usage:  
-`[yourserver]/UnixTimestamp/timestamp.php/December%2015,%202015`
+`[yourserver]/UnixTimestamp/timestamp.php/December%2015,%202015`  
 `[yourserver]/UnixTimestamp/timestamp.php/1450137600`
 
 
